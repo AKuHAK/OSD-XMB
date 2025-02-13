@@ -220,6 +220,7 @@ function showSysInfoMsg()
         switch (ROMVER[4])
         {
             case 'X': ConsoleRegion = "Test"; break;
+            case 'T': ConsoleRegion = "Test"; break;
             case 'C': ConsoleRegion = "China"; break;
             case 'E': ConsoleRegion = "Europe"; break;
             case 'H': ConsoleRegion = "Asia"; break;
