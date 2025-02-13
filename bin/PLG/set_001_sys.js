@@ -243,6 +243,21 @@ function showSysInfoMsg()
 
         if (rawVersion === "0250") { consoleType = "PS2 TV"; }
 
+        // rom1:DVDID (example 3.10M)
+        const dvdId = std.open("rom1:DVDID", "r");
+
+        if (dvdId)
+        {
+            const id = dvdId.readAsString();
+            dvdId.close();
+            switch (id[4])
+            {
+                case 'O': ConsoleRegion = "Oceania"; break;
+                case 'R': ConsoleRegion = "Russia"; break;
+                case 'M': ConsoleRegion = "Mexico"; break;
+            }
+        }
+
         // Get Extended Info if available.
         const file = std.open("rom0:EXTINFO", "r");
 
